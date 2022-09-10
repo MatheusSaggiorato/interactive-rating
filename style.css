@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: hsl(216, 12%, 8%);
 }
 
 .title {
@@ -38,12 +38,12 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  color: hsl(217, 12%, 63%);
   height: 45px;
   width: 45px;
   border-radius: 50%;
   background-color: rgba(25, 28, 32, 0.5);
   font-weight: 700;
+  color: hsl(216, 12%, 54%);
 }
 
 .buttonSubmit {
