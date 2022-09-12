@@ -1,6 +1,5 @@
 * {
   font-family: 'Overpass', sans-serif;
-
   color: #fff;
 }
 
@@ -8,17 +7,38 @@ body {
   background-color: hsl(216, 12%, 8%);
 }
 
-.title {
+#noteContainer {
+  display: flex;
+}
+
+#thankImage {
+  display: none;
+  margin: 20px auto;
+}
+
+#selectedNote {
+  display: none;
+  margin: auto;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: hsl(25, 97%, 53%);
+  background-color: rgba(77, 85, 95, 0.5);
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+#title {
   font-weight: 700;
 }
 
-.paragraph {
+#paragraph {
   color: hsl(217, 12%, 63%);
   font-size: 15px;
   font-weight: 400;
 }
 
-.container {
+#container {
   box-sizing: content-box;
   margin: auto;
   padding: 10px 20px;
@@ -41,12 +61,13 @@ body {
   height: 45px;
   width: 45px;
   border-radius: 50%;
+  border: none;
   background-color: rgba(77, 85, 95, 0.5);
   font-weight: 700;
   color: hsl(216, 12%, 54%);
 }
 
-.buttonSubmit {
+#buttonSubmit {
   display: block;
   margin: 25px auto 10px;
   width: 95%;
@@ -58,11 +79,21 @@ body {
   background-color: hsl(25, 97%, 53%);
 }
 
-.attribution {
+#buttonSubmit:hover {
+  animation: blink1 1s ease-in-out infinite;
+}
+
+#attribution {
   font-size: 11px;
   text-align: center;
 }
 
-.attribution a {
+#attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@keyframes blink1 {
+  0% {scale: 1.0;}
+  50% {scale: 1.03}
+  100% {scale:1.0}
 }
