@@ -7,44 +7,49 @@ let notes = document.querySelectorAll(".notes");
 let buttonSubmit = document.getElementById("buttonSubmit");
 let userNote = undefined;
 
+
 function changeOnSubmit() {
 
-    function changeSelectedNote() {
-        selectedNote.style.display = "block";
-        selectedNote.innerText = `You selected ${userNote} out of 5`;
+    if (userNote == undefined) {
+        alert("You need to select a note to proceed.");
+    } else {
+
+        function changeSelectedNote() {
+            selectedNote.style.display = "block";
+            selectedNote.innerText = `You selected ${userNote} out of 5`;
+        }
+        changeSelectedNote();
+
+        function showThankImage() {
+            thankImage.style.display = "block";
+        }
+        showThankImage();
+
+        removeCircles();
+
+        function changeTitle() {
+            title.innerText = "Thank you!";
+            title.style.textAlign = "center";
+        }
+        changeTitle();
+
+        function changeParagraph() {
+            paragraph.innerText = "Thank you for taking the time to give us a rating. If you need further support, please don't hesitate to contact us!"
+            paragraph.style.textAlign = "center";
+        }
+        changeParagraph();
+
+        function removeCircles() {
+            circles.forEach((circles) => {
+                circles.style.display = "none";
+            })
+        }
+
+        function removeButton() {
+            buttonSubmit.style.display = "none";
+        }
+        removeButton();
     }
-    changeSelectedNote();
-
-    function showThankImage() {
-        thankImage.style.display = "block";
-    }
-    showThankImage();
-
-    removeCircles();
-
-    function changeTitle() {
-        title.innerText = "Thank you!";
-        title.style.textAlign = "center";
-    }
-    changeTitle();
-
-    function changeParagraph() {
-        paragraph.innerText = "Thank you for taking the time to give us a rating. If you need further support, please don't hesitate to contact us!"
-        paragraph.style.textAlign = "center";
-    }
-    changeParagraph();
-
-    function removeCircles() {
-        circles.forEach((circles) => {
-            circles.style.display = "none";
-        })
-    }
-
-    function removeButton() {
-        buttonSubmit.style.display = "none";
-    }
-    removeButton();
-
 }
 
 
