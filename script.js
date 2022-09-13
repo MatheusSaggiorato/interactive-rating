@@ -3,15 +3,17 @@ let title = document.getElementById("title");
 let paragraph = document.getElementById("paragraph");
 let thankImage = document.getElementById("thankImage");
 let selectedNote = document.getElementById("selectedNote");
-let notes = document.querySelectorAll(".notes");
+let myButtons = document.querySelectorAll(".buttons-group > button");
 let buttonSubmit = document.getElementById("buttonSubmit");
 let userNote = undefined;
 
 
 function changeOnSubmit() {
 
-    if (userNote == undefined) {
-        alert("You need to select a note to proceed.");
+    if (userNote == undefined || null || userNote < 1 || userNote > 5) {
+
+        alert("You need to select a grade between 1 and 5 to proceed");
+
     } else {
 
         function changeSelectedNote() {
@@ -51,36 +53,58 @@ function changeOnSubmit() {
         removeButton();
     }
 }
-
-
 function changeBackgroundNote() {
 
-    notes.forEach((notes) => {
-        notes.addEventListener("click", function (event) {
-            event.target.style.backgroundColor = "hsl(25, 97%, 53%)";
-        })
+    myButtons.forEach(function (event) {
+        event.addEventListener("click", function () {
+            removeStyles();olor = "black";
+            this.classList.add("buttonClicked");
+            buttonSubmit.style.backgroundColor = "#fff";
+            buttonSubmit.style.color = "hsl(25, 97%, 53%)";
+        });
     })
+
+    function removeStyles() {
+        for (let i = 0; i < myButtons.length; i++) {
+            myButtons[i].classList.remove("buttonClicked");
+        }
+    }
 }
+
 changeBackgroundNote();
 
 function changeUserNote() {
 
-    notes.forEach((notes) => {
-        notes.addEventListener("click", function (event) {
-            if (event.target.id == "rating1") {
-                userNote = 1;
-            } else if (event.target.id == "rating2") {
-                userNote = 2;
-            } else if (event.target.id == "rating3") {
-                userNote = 3;
-            } else if (event.target.id == "rating4") {
-                userNote = 4;
-            } else if (event.target.id == "rating5") {
-                userNote = 5;
-            }
+    myButtons.forEach((myButtons) => {
+        myButtons.addEventListener("click", function (event) {
 
-            console.log(userNote);
+            switch (event.target.id) {
+                case "rating1":
+                    userNote = 1;
+                    break;
+
+                case "rating2":
+                    userNote = 2;
+                    break;
+
+                case "rating3":
+                    userNote = 3;
+                    break;
+
+                case "rating4":
+                    userNote = 4;
+                    break;
+
+                case "rating5":
+                    userNote = 5;
+                    break;
+
+                default:
+                    alert("You need to select a note to proceed.");
+            }
         })
     })
 }
 changeUserNote();
+
+// código original estava com 108 linhas e 2981 caracteres
