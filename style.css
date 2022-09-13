@@ -64,7 +64,7 @@ body {
   border: none;
   background-color: rgba(77, 85, 95, 0.5);
   font-weight: 700;
-  color: hsl(216, 12%, 54%);
+  color: hsl(0, 0%, 100%);
 }
 
 #buttonSubmit {
@@ -84,6 +84,7 @@ body {
 }
 
 #attribution {
+  margin-top: 10px;
   font-size: 11px;
   text-align: center;
 }
@@ -93,7 +94,15 @@ body {
 }
 
 @keyframes blink1 {
-  0% {scale: 1.0;}
-  50% {scale: 1.03}
-  100% {scale:1.0}
+  0% {
+    scale: 1.0;
+  }
+
+  50% {
+    scale: 1.03
+  }
+
+  100% {
+    scale: 1.0
+  }
 }
