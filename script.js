@@ -36,7 +36,7 @@ function changeOnSubmit() {
         changeTitle();
 
         function changeParagraph() {
-            paragraph.innerText = "Thank you for taking the time to give us a rating. If you need further support, please don't hesitate to contact us!"
+            paragraph.innerText = "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"
             paragraph.style.textAlign = "center";
         }
         changeParagraph();
