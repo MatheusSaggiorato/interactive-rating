@@ -5,58 +5,59 @@ let thankImage = document.getElementById("thankImage");
 let selectedNote = document.getElementById("selectedNote");
 let myButtons = document.querySelectorAll(".buttons-group > button");
 let buttonSubmit = document.getElementById("buttonSubmit");
-let userNote = undefined;
-
-
 let circle4 = document.querySelector(".circle4");
 let circle5 = document.querySelector(".circle5");
+let userNote = undefined;
+
+buttonSubmit.disabled = true;
+
+myButtons.forEach(function (event) {
+    event.addEventListener("click", function () {
+        buttonSubmit.classList.add("buttonSubmitActive");
+        buttonSubmit.disabled = false;
+    });
+})
 
 
 function changeAfterSubmit() {
 
-    if (userNote == undefined || null || userNote < 1 || userNote > 5) {
-
-        alert("You need to select a grade between 1 and 5 to proceed");
-
-    } else {
-
-        function changeSelectedNote() {
-            selectedNote.style.display = "block";
-            selectedNote.innerText = `You selected ${userNote} out of 5`;
-        }
-        changeSelectedNote();
-
-        function showThankImage() {
-            thankImage.style.display = "block";
-        }
-        showThankImage();
-
-        function changeTitle() {
-            title.innerText = "Thank you!";
-            title.style.textAlign = "center";
-        }
-        changeTitle();
-
-        function changeParagraph() {
-            paragraph.innerText = "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"
-            paragraph.style.textAlign = "center";
-        }
-        changeParagraph();
-
-        function removeCircles() {
-            circles.forEach((circles) => {
-                circles.style.display = "none";
-            })
-        }
-
-        removeCircles();
-
-        function removeButtonSubmit() {
-            buttonSubmit.style.display = "none";
-        }
-        removeButtonSubmit();
+    function changeSelectedNote() {
+        selectedNote.style.display = "block";
+        selectedNote.innerText = `You selected ${userNote} out of 5`;
     }
+    changeSelectedNote();
+
+    function showThankImage() {
+        thankImage.style.display = "block";
+    }
+    showThankImage();
+
+    function changeTitle() {
+        title.innerText = "Thank you!";
+        title.style.textAlign = "center";
+    }
+    changeTitle();
+
+    function changeParagraph() {
+        paragraph.innerText = "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"
+        paragraph.style.textAlign = "center";
+    }
+    changeParagraph();
+
+    function removeCircles() {
+        circles.forEach((circles) => {
+            circles.style.display = "none";
+        })
+    }
+
+    removeCircles();
+
+    function removeButtonSubmit() {
+        buttonSubmit.style.display = "none";
+    }
+    removeButtonSubmit();
 }
+
 
 function changeUserNote() {
 
@@ -99,11 +100,8 @@ function changeBackgroundCircles() {
         event.addEventListener("click", function () {
             removeStyles();
             this.classList.add("buttonClicked");
-            
             circle4.style.backgroundColor = "hsl(217, 12%, 63%)";
             circle5.style.backgroundColor = "hsl(217, 12%, 63%)";
-            buttonSubmit.style.backgroundColor = "#fff";
-            buttonSubmit.style.color = "hsl(25, 97%, 53%)";
         });
     })
 
