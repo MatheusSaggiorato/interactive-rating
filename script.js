@@ -8,7 +8,11 @@ let buttonSubmit = document.getElementById("buttonSubmit");
 let userNote = undefined;
 
 
-function changeOnSubmit() {
+let circle4 = document.querySelector(".circle4");
+let circle5 = document.querySelector(".circle5");
+
+
+function changeAfterSubmit() {
 
     if (userNote == undefined || null || userNote < 1 || userNote > 5) {
 
@@ -26,8 +30,6 @@ function changeOnSubmit() {
             thankImage.style.display = "block";
         }
         showThankImage();
-
-        removeCircles();
 
         function changeTitle() {
             title.innerText = "Thank you!";
@@ -47,31 +49,14 @@ function changeOnSubmit() {
             })
         }
 
-        function removeButton() {
+        removeCircles();
+
+        function removeButtonSubmit() {
             buttonSubmit.style.display = "none";
         }
-        removeButton();
+        removeButtonSubmit();
     }
 }
-function changeBackgroundNote() {
-
-    myButtons.forEach(function (event) {
-        event.addEventListener("click", function () {
-            removeStyles();olor = "black";
-            this.classList.add("buttonClicked");
-            buttonSubmit.style.backgroundColor = "#fff";
-            buttonSubmit.style.color = "hsl(25, 97%, 53%)";
-        });
-    })
-
-    function removeStyles() {
-        for (let i = 0; i < myButtons.length; i++) {
-            myButtons[i].classList.remove("buttonClicked");
-        }
-    }
-}
-
-changeBackgroundNote();
 
 function changeUserNote() {
 
@@ -107,4 +92,26 @@ function changeUserNote() {
 }
 changeUserNote();
 
-// código original estava com 108 linhas e 2981 caracteres
+
+function changeBackgroundCircles() {
+
+    myButtons.forEach(function (event) {
+        event.addEventListener("click", function () {
+            removeStyles();
+            this.classList.add("buttonClicked");
+            
+            circle4.style.backgroundColor = "hsl(217, 12%, 63%)";
+            circle5.style.backgroundColor = "hsl(217, 12%, 63%)";
+            buttonSubmit.style.backgroundColor = "#fff";
+            buttonSubmit.style.color = "hsl(25, 97%, 53%)";
+        });
+    })
+
+    function removeStyles() {
+        for (let i = 0; i < myButtons.length; i++) {
+            myButtons[i].classList.remove("buttonClicked");
+        }
+    }
+}
+
+changeBackgroundCircles();

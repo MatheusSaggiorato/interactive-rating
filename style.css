@@ -76,7 +76,7 @@ body {
   width: 45px;
   border-radius: 50%;
   border: none;
-  background-color: hsl(25, 97%, 53%);
+  background-color: hsl(25, 97%, 53%) !important;
   font-weight: 700;
 }
 
