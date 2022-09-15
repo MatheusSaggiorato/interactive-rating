@@ -100,8 +100,8 @@ function changeBackgroundCircles() {
         event.addEventListener("click", function () {
             removeStyles();
             this.classList.add("buttonClicked");
-            circle4.style.backgroundColor = "hsl(217, 12%, 63%)";
-            circle5.style.backgroundColor = "hsl(217, 12%, 63%)";
+            circle4.style.backgroundColor = "hsl(216, 12%, 54%)";
+            circle5.style.backgroundColor = "hsl(216, 12%, 54%)";
         });
     })
 

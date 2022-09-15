@@ -67,6 +67,10 @@ body {
   color: hsl(0, 0%, 100%);
 }
 
+.hoverNotes:hover {
+  background-color: hsl(216, 12%, 54%);
+}
+
 .buttons-group {
   justify-content: center;
   display: flex;
@@ -112,7 +116,7 @@ body {
 }
 
 #attribution a {
-  color: hsl(228, 45%, 44%);
+  color: hsl(227, 100%, 84%);
 }
 
 @keyframes blink1 {
