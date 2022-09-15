@@ -1,115 +1,76 @@
-let circles = document.querySelectorAll(".circles");
-let title = document.getElementById("title");
-let paragraph = document.getElementById("paragraph");
-let thankImage = document.getElementById("thankImage");
-let selectedNote = document.getElementById("selectedNote");
-let myButtons = document.querySelectorAll(".buttons-group > button");
-let buttonSubmit = document.getElementById("buttonSubmit");
-let circle4 = document.querySelector(".circle4");
-let circle5 = document.querySelector(".circle5");
+const title = document.getElementById("title");
+const paragraph = document.getElementById("paragraph");
+const thankImage = document.getElementById("thankImage");
+const selectedNote = document.getElementById("selectedNote");
+const notes = document.querySelectorAll(".notes");
+const circles = document.querySelectorAll(".circles");
+const circle4 = document.getElementById("rating4")
+const circle5 = document.getElementById("rating5")
+const buttonSubmit = document.getElementById("buttonSubmit");
 let userNote = undefined;
 
 buttonSubmit.disabled = true;
 
-myButtons.forEach(function (event) {
+notes.forEach(function (event) {
     event.addEventListener("click", function () {
         buttonSubmit.classList.add("buttonSubmitActive");
         buttonSubmit.disabled = false;
     });
 })
 
+function changesAfterSubmit() {
+    selectedNote.style.display = "block";
+    selectedNote.innerText = `You selected ${userNote} out of 5`;
 
-function changeAfterSubmit() {
+    thankImage.style.display = "block";
 
-    function changeSelectedNote() {
-        selectedNote.style.display = "block";
-        selectedNote.innerText = `You selected ${userNote} out of 5`;
-    }
-    changeSelectedNote();
+    title.innerText = "Thank you!";
+    title.style.textAlign = "center";
 
-    function showThankImage() {
-        thankImage.style.display = "block";
-    }
-    showThankImage();
+    paragraph.innerText = "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"
+    paragraph.style.textAlign = "center";
 
-    function changeTitle() {
-        title.innerText = "Thank you!";
-        title.style.textAlign = "center";
-    }
-    changeTitle();
+    buttonSubmit.style.display = "none";
 
-    function changeParagraph() {
-        paragraph.innerText = "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"
-        paragraph.style.textAlign = "center";
-    }
-    changeParagraph();
-
-    function removeCircles() {
-        circles.forEach((circles) => {
-            circles.style.display = "none";
-        })
-    }
-
-    removeCircles();
-
-    function removeButtonSubmit() {
-        buttonSubmit.style.display = "none";
-    }
-    removeButtonSubmit();
-}
-
-
-function changeUserNote() {
-
-    myButtons.forEach((myButtons) => {
-        myButtons.addEventListener("click", function (event) {
-
-            switch (event.target.id) {
-                case "rating1":
-                    userNote = 1;
-                    break;
-
-                case "rating2":
-                    userNote = 2;
-                    break;
-
-                case "rating3":
-                    userNote = 3;
-                    break;
-
-                case "rating4":
-                    userNote = 4;
-                    break;
-
-                case "rating5":
-                    userNote = 5;
-                    break;
-
-                default:
-                    alert("You need to select a note to proceed.");
-            }
-        })
+    circles.forEach((circles) => {
+        circles.style.display = "none";
     })
 }
-changeUserNote();
 
-
-function changeBackgroundCircles() {
-
-    myButtons.forEach(function (event) {
-        event.addEventListener("click", function () {
-            removeStyles();
-            this.classList.add("buttonClicked");
-            circle4.style.backgroundColor = "hsl(216, 12%, 54%)";
-            circle5.style.backgroundColor = "hsl(216, 12%, 54%)";
-        });
-    })
-
-    function removeStyles() {
-        for (let i = 0; i < myButtons.length; i++) {
-            myButtons[i].classList.remove("buttonClicked");
+notes.forEach((notes) => {
+    notes.addEventListener("click", function (event) {
+        switch (event.target.id) {
+            case "rating1":
+                userNote = 1;
+                break;
+            case "rating2":
+                userNote = 2;
+                break;
+            case "rating3":
+                userNote = 3;
+                break;
+            case "rating4":
+                userNote = 4;
+                break;
+            case "rating5":
+                userNote = 5;
+                break;
+            default:
+                userNote = undefined;
         }
-    }
-}
+    })
+})
 
-changeBackgroundCircles();
+notes.forEach(function (event) {
+    event.addEventListener("click", function () {
+
+        for (let i = 0; i < notes.length; i++) {
+            notes[i].classList.remove("buttonClicked");
+        }
+
+        this.classList.add("buttonClicked");
+        
+        circle4.style.backgroundColor = "hsl(216, 12%, 54%)";
+        circle5.style.backgroundColor = "hsl(216, 12%, 54%)";
+    });
+})
