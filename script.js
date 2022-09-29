@@ -4,21 +4,25 @@ const thankImage = document.getElementById("thankImage");
 const selectedNote = document.getElementById("selectedNote");
 const notes = document.querySelectorAll(".notes");
 const circles = document.querySelectorAll(".circles");
-const circle4 = document.getElementById("rating4")
-const circle5 = document.getElementById("rating5")
+const circle4 = document.getElementById("note4")
+const circle5 = document.getElementById("note5")
 const buttonSubmit = document.getElementById("buttonSubmit");
 let userNote = undefined;
 
 buttonSubmit.disabled = true;
 
-notes.forEach(function (event) {
-    event.addEventListener("click", function () {
+notes.forEach((notes)=>{
+    notes.addEventListener('click', ()=>{
+        userNote = notes.innerText
+        circle4.style.backgroundColor = "hsl(216, 12%, 54%)";
+        circle5.style.backgroundColor = "hsl(216, 12%, 54%)";
         buttonSubmit.classList.add("buttonSubmitActive");
         buttonSubmit.disabled = false;
-    });
+    })
 })
 
-function changesAfterSubmit() {
+buttonSubmit.addEventListener('click', ()=>{
+
     selectedNote.style.display = "block";
     selectedNote.innerText = `You selected ${userNote} out of 5`;
 
@@ -34,43 +38,5 @@ function changesAfterSubmit() {
 
     circles.forEach((circles) => {
         circles.style.display = "none";
-    })
-}
-
-notes.forEach((notes) => {
-    notes.addEventListener("click", function (event) {
-        switch (event.target.id) {
-            case "rating1":
-                userNote = 1;
-                break;
-            case "rating2":
-                userNote = 2;
-                break;
-            case "rating3":
-                userNote = 3;
-                break;
-            case "rating4":
-                userNote = 4;
-                break;
-            case "rating5":
-                userNote = 5;
-                break;
-            default:
-                userNote = undefined;
-        }
-    })
-})
-
-notes.forEach(function (event) {
-    event.addEventListener("click", function () {
-
-        for (let i = 0; i < notes.length; i++) {
-            notes[i].classList.remove("buttonClicked");
-        }
-
-        this.classList.add("buttonClicked");
-        
-        circle4.style.backgroundColor = "hsl(216, 12%, 54%)";
-        circle5.style.backgroundColor = "hsl(216, 12%, 54%)";
-    });
+  })
 })
