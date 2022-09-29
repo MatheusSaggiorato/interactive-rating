@@ -14,53 +14,64 @@
 
 <body>
 
-  <main id="mainCard">
+  <main>
 
-    <header class="circles">
-      <img src="./images/icon-star.svg" alt="orange icon star">
-    </header>
+    <section class="mainCard firstCard">
 
-    <img id="thankImage" src="./images/illustration-thank-you.svg" alt="smartphone icon">
+      <header class="circles">
+        <img src="./images/icon-star.svg" alt="orange icon star">
+      </header>
 
-    <section id="noteContainer">
-      <p id="selectedNote">You selected 4 out of 5</p>
+      <h1 class="titleFirstCard">How did we do?</h1>
+      <p class="paragraphFirstCard">
+        Please let us know how we did with your support request.
+        All feedbacks is aprreciated to help us improve our offering!
+      </p>
+
+      <div class="buttons-group">
+
+        <button class="circles notes">
+          1
+        </button>
+        <button class="circles notes">
+          2
+        </button>
+        <button class="circles notes">
+          3
+        </button>
+        <button id="note4" class="circles notes">
+          4
+        </button>
+        <button id="note5" class="circles notes">
+          5
+        </button>
+
+      </div>
+
+      <button type="button" id="buttonSubmit">SUBMIT</button>
     </section>
 
-    <h1 id="title">How did we do?</h1>
-    <p id="paragraph">
-      Please let us know how we did with your support request.
-      All feedbacks is aprreciated to help us improve our offering!
-    </p>
+    <section class="mainCard secondCard">
 
-    <div class="buttons-group">
+      <img class="thankImage" src="./images/illustration-thank-you.svg" alt="smartphone icon">
 
-      <button class="circles notes">
-        1
-      </button>
-      <button class="circles notes">
-        2
-      </button>
-      <button class="circles notes">
-        3
-      </button>
-      <button id="note4" class="circles notes">
-        4
-      </button>
-      <button id="note5" class="circles notes">
-        5
-      </button>
+      <section class="noteContainer">
+        <p class="selectedNote"></p>
+      </section>
 
-    </div>
+      <h2 class="titleSecondCard">Thank you!</h2>
 
-    <button type="button" id="buttonSubmit">SUBMIT</button>
+      <p class="paragraphSecondCard">We appreciate you taking the time to give a rating. If you ever need more support,
+        dont hesitate to get in touch!</p>
+
+    </section>
 
   </main>
 
-  <footer id="attribution">
+  <footer class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://github.com/MatheusSaggiorato" target="_blank">Matheus Saggiorato da Silva</a>.
   </footer>
-
 
   <script src="./script.js"></script>
 </body>

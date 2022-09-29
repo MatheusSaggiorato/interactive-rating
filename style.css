@@ -12,7 +12,7 @@ body {
   min-height: 100vh;
 }
 
-#mainCard {
+.mainCard {
   box-sizing: content-box;
   margin: 0 0 2rem;
   padding: 10px 20px;
@@ -21,17 +21,11 @@ body {
   max-width: 330px;
 }
 
-#noteContainer {
-  display: flex;
+.secondCard {
+  display: none;
 }
 
-#thankImage {
-  display: none;
-  margin: 20px auto;
-}
-
-#selectedNote {
-  display: none;
+.selectedNote {
   margin: auto;
   text-align: center;
   font-size: 15px;
@@ -42,15 +36,33 @@ body {
   border-radius: 20px;
 }
 
-#title {
+.titleFirstCard {
   font-size: 25px;
   font-weight: 700;
 }
 
-#paragraph {
+.paragraphFirstCard {
   color: hsl(217, 12%, 63%);
   font-size: 15px;
   font-weight: 400;
+}
+
+.thankImage {
+  display: block;
+  margin: 20px auto;
+}
+
+.titleSecondCard {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.paragraphSecondCard {
+  color: hsl(217, 12%, 63%);
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
 }
 
 .circles {
@@ -72,14 +84,14 @@ body {
 }
 
 .notes:focus {
-  background-color:hsl(25, 97%, 53%) !important;
+  background-color: hsl(25, 97%, 53%) !important;
 }
 
 .buttons-group {
-  justify-content: center;
   display: flex;
-  gap: 20px;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
 #buttonSubmit {
@@ -101,12 +113,12 @@ body {
   color: hsl(25, 97%, 53%);
 }
 
-#attribution {
+.attribution {
   font-size: 11px;
   text-align: center;
 }
 
-#attribution a {
+.attribution a {
   color: hsl(227, 100%, 84%);
 }
 

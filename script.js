@@ -1,19 +1,16 @@
-const title = document.getElementById("title");
-const paragraph = document.getElementById("paragraph");
-const thankImage = document.getElementById("thankImage");
-const selectedNote = document.getElementById("selectedNote");
+const selectedNote = document.querySelector(".selectedNote");
 const notes = document.querySelectorAll(".notes");
-const circles = document.querySelectorAll(".circles");
 const circle4 = document.getElementById("note4")
 const circle5 = document.getElementById("note5")
+const firstCard = document.querySelector(".firstCard");
+const secondCard = document.querySelector(".secondCard");
 const buttonSubmit = document.getElementById("buttonSubmit");
-let userNote = undefined;
 
 buttonSubmit.disabled = true;
 
-notes.forEach((notes)=>{
-    notes.addEventListener('click', ()=>{
-        userNote = notes.innerText
+notes.forEach((note) => {
+    note.addEventListener('click', () => {
+      selectedNote.innerText = `You selected ${note.innerText} out of 5`;
         circle4.style.backgroundColor = "hsl(216, 12%, 54%)";
         circle5.style.backgroundColor = "hsl(216, 12%, 54%)";
         buttonSubmit.classList.add("buttonSubmitActive");
@@ -21,22 +18,7 @@ notes.forEach((notes)=>{
     })
 })
 
-buttonSubmit.addEventListener('click', ()=>{
-
-    selectedNote.style.display = "block";
-    selectedNote.innerText = `You selected ${userNote} out of 5`;
-
-    thankImage.style.display = "block";
-
-    title.innerText = "Thank you!";
-    title.style.textAlign = "center";
-
-    paragraph.innerText = "We appreciate you taking the time to give a rating. If you ever need more support, don't hesitate to get in touch!"
-    paragraph.style.textAlign = "center";
-
-    buttonSubmit.style.display = "none";
-
-    circles.forEach((circles) => {
-        circles.style.display = "none";
-  })
+buttonSubmit.addEventListener('click', () => {
+    firstCard.style.display = "none"
+    secondCard.style.display = "block"
 })
